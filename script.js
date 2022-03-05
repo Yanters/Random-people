@@ -5,7 +5,7 @@ let showAdresses = true;
 async function getapi(
   url = `https://randomuser.me/api/?inc=name,registered,picture,nat${
     showAdresses ? ",location" : ""
-  }`
+  }&noinfo`
 ) {
   // Storing response
   const response = await fetch(url);
@@ -15,6 +15,7 @@ async function getapi(
   var formatedData = data.results[0];
   console.log(data);
   show(formatedData);
+  updatePeopleList(formatedData);
 }
 
 function show(data) {
@@ -43,7 +44,7 @@ function show(data) {
         <ul>
           <li>First Name: ${first}</li>
           <li>Last Name: ${last}</li>
-          <li>Register Date: ${registerDate}</li>
+          <li>Register Date: ${formatDate(registerDate)}</li>
           <li>Nationality: ${nationality}</li>
           ${
             showAdresses
@@ -74,4 +75,46 @@ function hideLocationInfo() {
   } else {
     showAdresses = true;
   }
+}
+
+function getPeopleList() {
+  return JSON.parse(localStorage.getItem("peopleList") || "[]");
+}
+
+function formatDate(date) {
+  formatedDate = new Date(date);
+  formatedDate = new Date(formatedDate.getTime());
+  return formatedDate.toISOString().split("T")[0];
+}
+
+function updatePeopleList(data) {
+  // Loading
+  var people = getPeopleList();
+  if (people.length == 10) {
+    people.shift();
+  }
+
+  people.push(data);
+
+  // Saving
+  localStorage.setItem("peopleList", JSON.stringify(people));
+
+  //Display first name, last name, country, and registration date.
+  let tab = "";
+  people.forEach(function (user, index) {
+    var registerDate = formatDate(user.registered.date);
+
+    tab += `
+    <div>
+    <h3>${index + 1}.</h3>
+    <img src="${user.picture.large}"/>
+    <ul>
+      <li>First Name: ${user.name.first}</li>
+      <li>Last Name: ${user.name.last}</li>
+      <li>Register Date: ${registerDate}</li>
+      <li>Nationality: ${user.nat}</li>
+    </ul>
+    <div>`;
+  });
+  document.querySelector("#other").innerHTML = tab;
 }
