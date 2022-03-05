@@ -14,8 +14,9 @@ async function getapi(
   var data = await response.json();
   var formatedData = data.results[0];
   console.log(data);
-  show(formatedData);
   updatePeopleList(formatedData);
+  show(formatedData);
+  displayPeopleList();
 }
 
 function show(data) {
@@ -98,8 +99,11 @@ function updatePeopleList(data) {
 
   // Saving
   localStorage.setItem("peopleList", JSON.stringify(people));
+}
 
+function displayPeopleList() {
   //Display first name, last name, country, and registration date.
+  var people = getPeopleList();
   let tab = "";
   people.forEach(function (user, index) {
     var registerDate = formatDate(user.registered.date);
@@ -118,3 +122,5 @@ function updatePeopleList(data) {
   });
   document.querySelector("#other").innerHTML = tab;
 }
+
+displayPeopleList();
