@@ -1,27 +1,11 @@
-const randomBetween = (min, max) =>
-  min + Math.floor(Math.random() * (max - min + 1));
-
-function random_rgba() {
-  const r = randomBetween(0, 255);
-  const g = randomBetween(0, 255);
-  const b = randomBetween(0, 255);
-  const rgb = `rgb(${r},${g},${b})`;
-  return rgb;
-}
-
-function random_size() {}
-
-const randomize = () => {
-  choosenDiv.setAttribute(
-    "style",
-    `color: ${random_rgba()}; font-size:${randomBetween(5, 80)}px`
-  );
-};
+let showAdresses = true;
 
 /// Present: first name, last name, picture, register date, nationality, and location address.
 //https://randomuser.me/api/
 async function getapi(
-  url = "https://randomuser.me/api/?key=ABCD-1234-EFGH-5678&ref=1234abcd&hideuserinfo&noinfo"
+  url = `https://randomuser.me/api/?inc=name,registered,picture,nat${
+    showAdresses ? ",location" : ""
+  }`
 ) {
   // Storing response
   const response = await fetch(url);
@@ -40,16 +24,20 @@ function show(data) {
     picture: { large: pictureURL },
     registered: { date: registerDate },
     nat: nationality,
-    location: { country },
-    location: { city },
-    location: {
-      street: { name: streetName },
-    },
-    location: {
-      street: { number: streetNumber },
-    },
   } = data;
 
+  if (showAdresses) {
+    var {
+      location: { country },
+      location: { city },
+      location: {
+        street: { name: streetName },
+      },
+      location: {
+        street: { number: streetNumber },
+      },
+    } = data;
+  }
   let tab = `
         <img src="${pictureURL}"/>
         <ul>
@@ -76,8 +64,6 @@ function show(data) {
   // Setting innerHTML as tab variable
   document.querySelector("#test").innerHTML = tab;
 }
-
-let showAdresses = true;
 
 function hideLocationInfo() {
   // Get the checkbox
