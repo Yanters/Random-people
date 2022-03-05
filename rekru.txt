@@ -1,0 +1,25 @@
+Cześć!
+
+Dziękujemy za odwiedziny naszego stoiska na Inżynierskich Targach Pracy na Politechnice Gdańskiej. Właśnie rozpoczynamy rekrutację na staż, jeśli chcesz spróbować swoich sił, poniżej przesyłamy zadanie rekrutacyjne oraz kilka wskazówek 🙂
+
+Frontend -> https://git.profil-software.com/recruitment-02-2022/recruitment-task-frontend-intership
+React Native -> https://git.profil-software.com/recruitment-02-2022/recruitment-task-frontend-intership
+Backend -> https://git.profil-software.com/recruitment-02-2022/recruitment-task-backend-intership
+
+Jeśli czujesz się dobrze w obu kategoriach możesz podjąć się wykonania obu zadań 🙂 Nie bój się pytać jeśli coś będzie niejasne.
+
+Termin wykonania: do 14 marca do końca dnia.
+Udostępniając nam repozytorium pamiętaj proszę o dołączeniu imienia i nazwiska np. w readme lub mailu - czasami po samym nicku na githubie ciężko zgadnąć do kogo należy rozwiązanie zadania 🙂
+
+Co się będzie działo dalej?
+Po zebraniu zadań nasi developerzy będą potrzebowali kilku dni na dokładne sprawdzenie zadań. Po sprawdzeniu zadań wybierzemy osoby, którym zadanie poszło najlepiej i zostaną zaproszone do drugiego etapu rekrutacji już u nas w biurze (spotkanie z Managerem oraz część techniczna: pytania teoretyczne i livecoding). Osoby, którym się nie uda otrzymają od nas taką informację wraz z feedbackiem z zadania.
+
+Naszym celem jest późniejsza kontynuacja współpracy w roli Junior Developerów i ponad 90% naszych stażystów zostaje z nami na dłużej 🙂
+Za staż wypłacamy wynagrodzenie w kwicie 2000zł miesięcznie. Staże trwają 3 miesiące pod okiem indywidualnego mentora i obejmują zagadnienia z zakresu:
+Backend: Python, aplikacje webowe z użyciem Django i Flaska, Celery, REST API, Docker + CI + CD, Data Science i ML/Blockchain
+Frontend: Podstawy Html + CSS, JavaScript, protokół HTTP, React.js + podstawy Angulara i Vue.js, Podstawy Node.js
+React Native: Typescript, REST, React Hooks ,Narzędzia do zarządzania stanem (np. Redux, React-query), React-navigation, Architektura aplikacji mobilnych
+
+
+W przypadku jakichkolwiek pytań jesteśmy do dyspozycji 🙂
+Zespół Profil Software
