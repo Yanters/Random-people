@@ -19,7 +19,10 @@ const randomize = () => {
 };
 
 /// Present: first name, last name, picture, register date, nationality, and location address.
-async function getapi(url = "https://randomuser.me/api/") {
+//https://randomuser.me/api/
+async function getapi(
+  url = "https://randomuser.me/api/?key=ABCD-1234-EFGH-5678&ref=1234abcd&hideuserinfo&noinfo"
+) {
   // Storing response
   const response = await fetch(url);
 
@@ -27,17 +30,6 @@ async function getapi(url = "https://randomuser.me/api/") {
   var data = await response.json();
   var formatedData = data.results[0];
   console.log(data);
-  console.log(
-    data.results[0].name.first,
-    data.results[0].name.last,
-    data.results[0].picture.medium,
-    data.results[0].registered.date,
-    data.results[0].nat,
-    data.results[0].location.country,
-    data.results[0].location.city,
-    data.results[0].location.street.name,
-    data.results[0].location.street.number
-  );
   show(formatedData);
 }
 
@@ -45,7 +37,7 @@ function show(data) {
   let {
     name: { first },
     name: { last },
-    picture: { medium: pictureURL },
+    picture: { large: pictureURL },
     registered: { date: registerDate },
     nat: nationality,
     location: { country },
@@ -65,24 +57,35 @@ function show(data) {
           <li>Last Name: ${last}</li>
           <li>Register Date: ${registerDate}</li>
           <li>Nationality: ${nationality}</li>
-          <li id="location">Location: ${country}, ${city}, ${streetName} ${streetNumber}</li>
-          <input type="checkbox" id="checkbox" onclick="hideLocationInfo()">Hide Address</input>
+          ${
+            showAdresses
+              ? '<li id="location">Location: ' +
+                country +
+                ", " +
+                city +
+                ", " +
+                streetName +
+                " " +
+                streetNumber +
+                "</li>"
+              : ""
+          }
+
         </ul>`;
 
   // Setting innerHTML as tab variable
   document.querySelector("#test").innerHTML = tab;
 }
 
+let showAdresses = true;
+
 function hideLocationInfo() {
   // Get the checkbox
   var checkBox = document.getElementById("checkbox");
-  // Get the output text
-  var locationText = document.getElementById("location");
-
   // If the checkbox is checked, display the output text
   if (checkBox.checked == true) {
-    locationText.style.display = "none";
+    showAdresses = false;
   } else {
-    locationText.style.display = "";
+    showAdresses = true;
   }
 }
