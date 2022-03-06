@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random People</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="/">Create Random Person</a>
+    </nav>
+    <hr />
+    <div id="otherbox">
+        <span>Sort by:</span>
+        <label for="lastncb">
+            <input type="checkbox" id="lastncb" onclick="changeState(this.id)">Last Name</input>
+        </label>
+        <label for="registercb">
+            <input type="checkbox" id="registercb" onclick="changeState(this.id)">Register Date</input>
+        </label>
+        <div id="other">
+        </div>
+    </div>
+    <hr />
+    <footer> Konrad Nowicki</footer>
+</body>
+<script src="script.js"></script>
+
+</html>
