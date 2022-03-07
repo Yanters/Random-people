@@ -10,22 +10,35 @@
 </head>
 
 <body>
-    <nav>NAVAVA
-        <a href="gallery.html">See gallery</a>
-    </nav>
-    <hr />
     <main>
-        <div id="test">Main text</div>
-        <button onclick="getapi()">Random!</button>
-        <label for="checkbox">
-            <input type="checkbox" id="checkbox" onclick="changeState(this.id)">Hide Address</input>
-        </label>
+        <div class="container">
+            <div id="test"></div>
+        </div>
+        <div class="buttonMain">
+            <div class="buttonMain">
+                <div class="neumorphism-toggle">
+                    <input type="checkbox" id="checkbox" onclick="changeState(this.id)">
+                    <label for="checkbox">
+                        <div class="switch">
+                            <div class="dot"></div>
+                        </div>
+                        <span>Hide Adresses</span>
+                    </label>
+                </div>
+                <button onclick="getapi()" class="btn">Randomize</button>
+            </div>
+        </div>
+
     </main>
 
 
     <hr />
+    <a href="gallery.html">See gallery</a>
     <footer> Konrad Nowicki</footer>
+    <!-- test -->
+
 </body>
 <script src="script.js"></script>
+<script>getapi();</script>
 
 </html>

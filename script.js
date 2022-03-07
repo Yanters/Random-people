@@ -16,7 +16,7 @@ async function getapi(
   console.log(data);
   updatePeopleList(formatedData);
   show(formatedData);
-  displayPeopleList();
+  // displayPeopleList();
 }
 
 function show(data) {
@@ -40,16 +40,25 @@ function show(data) {
       },
     } = data;
   }
+
+  /*
+  `
+    <div class="card">
+    <img src="${user.picture.large}" alt="Person" class="card__image"/>
+      <p class="card__name">${user.name.first} ${user.name.last}</p>
+      <p class="card__info">🗺️: ${user.nat}</p>
+      <p class="card__info">📅: ${registerDate}</p>
+    </div>`
+  */
   let tab = `
-        <img src="${pictureURL}"/>
-        <ul>
-          <li>First Name: ${first}</li>
-          <li>Last Name: ${last}</li>
-          <li>Register Date: ${formatDate(registerDate)}</li>
-          <li>Nationality: ${nationality}</li>
+        <div class="card">
+        <img src="${pictureURL}" alt="Person" class="card__image""/>
+        <p class="card__name">${first} ${last}</p>
+        <p class="card__info">🗺️: ${nationality}</p>
+        <p class="card__info">📅: ${formatDate(registerDate)}</p>
           ${
             showAdresses
-              ? '<li id="location">Location: ' +
+              ? '<p class="card__info" style="margin: 10px 20px; text-align: center">📍: ' +
                 country +
                 ", " +
                 city +
@@ -57,11 +66,11 @@ function show(data) {
                 streetName +
                 " " +
                 streetNumber +
-                "</li>"
+                "</p>"
               : ""
           }
 
-        </ul>`;
+        `;
 
   // Setting innerHTML as tab variable
   document.querySelector("#test").innerHTML = tab;
@@ -85,7 +94,7 @@ function changeState(clickedId) {
     if (clickedId == "registercb") sortType -= 2;
     console.log("sort: ", sortType);
   }
-  displayPeopleList();
+  if (clickedId != "checkbox") displayPeopleList();
 }
 
 function getPeopleList() {
@@ -111,8 +120,6 @@ function updatePeopleList(data) {
   localStorage.setItem("peopleList", JSON.stringify(people));
 }
 
-function sortPeople() {}
-console.log("sorting~!@#");
 //Display first name, last name, country, and registration date.
 function displayPeopleList() {
   var people = getPeopleList();
@@ -138,16 +145,12 @@ function displayPeopleList() {
     var registerDate = formatDate(user.registered.date);
 
     tab += `
-    <div class="listItem">
-    <h3>${index + 1}.</h3>
-    <img src="${user.picture.large}"/>
-      <p>First Name: ${user.name.first}</p>
-      <p>Last Name: ${user.name.last}</p>
-      <p>Register Date: ${registerDate}</p>
-      <p>Nationality: ${user.nat}</p>
+    <div class="card">
+    <img src="${user.picture.large}" alt="Person" class="card__image"/>
+      <p class="card__name">${user.name.first} ${user.name.last}</p>
+      <p class="card__info">🗺️: ${user.nat}</p>
+      <p class="card__info">📅: ${registerDate}</p>
     </div>`;
   });
-  document.querySelector("#other").innerHTML = tab;
+  document.querySelector(".container").innerHTML = tab;
 }
-
-displayPeopleList();

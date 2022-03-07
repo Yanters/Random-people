@@ -22,4 +22,4 @@ React Native: Typescript, REST, React Hooks ,Narzędzia do zarządzania stanem (
 
 
 W przypadku jakichkolwiek pytań jesteśmy do dyspozycji 🙂
-Zespół Profil Software
+Zespół Profil Softwaress

@@ -10,24 +10,40 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/">Create Random Person</a>
-    </nav>
     <hr />
     <div id="otherbox">
         <span>Sort by:</span>
-        <label for="lastncb">
-            <input type="checkbox" id="lastncb" onclick="changeState(this.id)">Last Name</input>
-        </label>
-        <label for="registercb">
-            <input type="checkbox" id="registercb" onclick="changeState(this.id)">Register Date</input>
-        </label>
-        <div id="other">
+        <div class="neumorphism-toggle">
+            <input type="checkbox" id="lastncb" onclick="changeState(this.id)">
+            <label for="lastncb">
+                <div class="switch">
+                    <div class="dot"></div>
+                </div>
+                <span>Last Name</span>
+            </label>
+        </div>
+        <div class="neumorphism-toggle">
+            <input type="checkbox" id="registercb" onclick="changeState(this.id)">
+            <label for="registercb">
+                <div class="switch">
+                    <div class="dot"></div>
+                </div>
+                <span>Register Date</span>
+            </label>
+        </div>
+        <div class="container">
+            <div class="card">
+                <img src="https://lh3.googleusercontent.com/oUUiPB9sq3ACq4bUaRmo8pgvC4FUpRRrQKcGIBSOsafawZfRpF1vruFeYt6uCfL6wGDQyvOi6Ez9Bpf1Fb7APKjIyVsft7FLGR6QqdRFTiceNQBm1In9aZyrXp33cZi9pUNqjHASdA=s170-no"
+                    alt="Person" class="card__image">
+                <p class="card__name">Murray Reeve</p>
+            </div>
         </div>
     </div>
     <hr />
+    <a href="/">Create Random Person</a>
     <footer> Konrad Nowicki</footer>
 </body>
 <script src="script.js"></script>
+<script>displayPeopleList();</script>
 
 </html>
