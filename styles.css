@@ -1,12 +1,15 @@
 * {
-  /* margin: 0;
+  margin: 0;
   padding: 0;
-  box-sizing: unset; */
+  box-sizing: unset;
   font-family: "Encode Sans Expanded", sans-serif;
-  background: rgb(1, 7, 7);
+  /* background: rgb(1, 7, 7); */
   color: white;
 }
 
+body {
+  height: 100%;
+}
 .neonText {
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
@@ -234,7 +237,7 @@ body .twitter svg {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  height: 100%;
+  min-height: 70vh;
   /* background-color: #f5f5f5; */
 }
 
@@ -261,7 +264,7 @@ body .twitter svg {
 }
 
 .card__info {
-  margin-top: 10px;
+  margin: 10px 0px;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.3em;
   background: transparent;
@@ -307,4 +310,106 @@ button:focus,
 button:hover {
   border-color: #e5ff60;
   color: #e5ff60;
+}
+
+/* Navbar */
+nav.Navbar {
+  background: #000;
+  height: 80px;
+  /* margin-top: -80px; */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.NavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  background: inherit;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1100px;
+}
+
+.NavLogo {
+  color: #fff;
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: inherit;
+}
+
+.NavMenu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.NavItem {
+  height: 80px;
+}
+
+.NavLinks {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: #000;
+  padding: 0 1rem;
+  height: 96.5%;
+  cursor: pointer;
+}
+
+/* footer */
+
+.FooterContainer {
+  margin-top: auto;
+  background-color: #101522;
+}
+
+.FooterWrap {
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.BottomFooter {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.BottomWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 20px auto;
+  /* @media screen and (max-width: 820px) {
+    flex-direction: column;
+  } */
+}
+
+.WebsiteRights {
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-align: center;
 }

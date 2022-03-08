@@ -5,13 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random People</title>
+    <title>Randomize</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <hr />
+    <!-- nav -->
+    <nav class="Navbar">
+        <div class="NavbarContainer">
+            <a class="NavLogo" href="/">Randomize</a>
+        </div>
+        <ul class="NavMenu">
+            <li class="NavItem">
+                <a class="NavLinks" href="/gallery.html">Gallery</a>
+            </li>
+        </ul>
+    </nav>
     <div id="otherbox">
+
+        <div class="container">
+            <div class="card">
+                <img src="https://lh3.googleusercontent.com/oUUiPB9sq3ACq4bUaRmo8pgvC4FUpRRrQKcGIBSOsafawZfRpF1vruFeYt6uCfL6wGDQyvOi6Ez9Bpf1Fb7APKjIyVsft7FLGR6QqdRFTiceNQBm1In9aZyrXp33cZi9pUNqjHASdA=s170-no"
+                    alt="Person" class="card__image">
+                <p class="card__name">Murray Reeve</p>
+            </div>
+        </div>
         <span>Sort by:</span>
         <div class="neumorphism-toggle">
             <input type="checkbox" id="lastncb" onclick="changeState(this.id)">
@@ -31,17 +49,18 @@
                 <span>Register Date</span>
             </label>
         </div>
-        <div class="container">
-            <div class="card">
-                <img src="https://lh3.googleusercontent.com/oUUiPB9sq3ACq4bUaRmo8pgvC4FUpRRrQKcGIBSOsafawZfRpF1vruFeYt6uCfL6wGDQyvOi6Ez9Bpf1Fb7APKjIyVsft7FLGR6QqdRFTiceNQBm1In9aZyrXp33cZi9pUNqjHASdA=s170-no"
-                    alt="Person" class="card__image">
-                <p class="card__name">Murray Reeve</p>
-            </div>
-        </div>
     </div>
-    <hr />
-    <a href="/">Create Random Person</a>
-    <footer> Konrad Nowicki</footer>
+    <footer class="FooterContainer">
+        <div class="FooterWrap">
+            <section class="BottomFooter">
+                <div class="BottomWrapper">
+                    <small class="WebsiteRights">
+                        Konrad Nowicki<br />Randomize &copy; All Rights Reserved
+                    </small>
+                </div>
+            </section>
+        </div>
+    </footer>
 </body>
 <script src="script.js"></script>
 <script>displayPeopleList();</script>
