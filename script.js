@@ -148,5 +148,5 @@ function displayPeopleList() {
       <p class="card__info">📅: ${registerDate}</p>
     </div>`;
   });
-  document.querySelector(".container").innerHTML = tab;
+  if (people.length != 0) document.querySelector(".container").innerHTML = tab;
 }
