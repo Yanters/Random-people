@@ -13,7 +13,6 @@ async function getapi(
   // Storing data in form of JSON
   var data = await response.json();
   var formatedData = data.results[0];
-  console.log(data);
   updatePeopleList(formatedData);
   show(formatedData);
   // displayPeopleList();
@@ -80,19 +79,16 @@ var sortType = 0;
 
 function changeState(clickedId) {
   // Get the checkbox
-  console.log(clickedId);
   var checkBox = document.getElementById(clickedId);
   // If the checkbox is checked, display the output text
   if (checkBox.checked == true) {
     showAdresses = false;
     if (clickedId == "lastncb") sortType++;
     if (clickedId == "registercb") sortType += 2;
-    console.log("sort: ", sortType);
   } else {
     showAdresses = true;
     if (clickedId == "lastncb") sortType--;
     if (clickedId == "registercb") sortType -= 2;
-    console.log("sort: ", sortType);
   }
   if (clickedId != "checkbox") displayPeopleList();
 }
@@ -131,7 +127,6 @@ function displayPeopleList() {
         y = b.name.last.toUpperCase(),
         z = formatDate(a.registered.date);
       c = formatDate(b.registered.date);
-      console.log(z, c);
       //Sort by last name
       if (sortType != 2) {
         return x == y ? (sortType == 3 ? (z > y ? 1 : -1) : 0) : x > y ? 1 : -1;
@@ -143,12 +138,13 @@ function displayPeopleList() {
 
   people.forEach(function (user, index) {
     var registerDate = formatDate(user.registered.date);
-
     tab += `
     <div class="card">
     <img src="${user.picture.large}" alt="Person" class="card__image"/>
       <p class="card__name">${user.name.first} ${user.name.last}</p>
-      <p class="card__info">🗺️: ${user.nat}</p>
+      <p class="card__info">🗺️: ${
+        user.location?.country ? user.location.country : "Unknown"
+      }</p>
       <p class="card__info">📅: ${registerDate}</p>
     </div>`;
   });

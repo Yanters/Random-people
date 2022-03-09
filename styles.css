@@ -9,6 +9,7 @@
 
 body {
   height: 100%;
+  background-color: #101522;
 }
 .neonText {
   color: #fff;
@@ -29,62 +30,13 @@ body {
   text-align: center;
 }
 /* Slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
 /* Slider V2 */
 span {
   background: transparent;
 }
 .neumorphism-toggle {
-  width: 300px;
+  width: auto;
   position: relative;
   transition: transform 0.3s;
   transform: scale(var(--scale, 1)) translateZ(0);
@@ -103,22 +55,9 @@ span {
   display: block;
   cursor: pointer;
   position: relative;
-  /* box-shadow: -12px -12px 24px var(--light-shadow, transparent),
-    12px 12px 24px var(--shadow, transparent); */
   transition: box-shadow 0.4s;
 }
-.neumorphism-toggle input + label:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background: linear-gradient(160deg, #f1f4ff, #f9faff);
-  opacity: var(--gradient, 0);
-  transition: opacity 0.4s;
-}
+
 .neumorphism-toggle input + label .switch {
   position: relative;
   display: inline-block;
@@ -237,12 +176,35 @@ body .twitter svg {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  min-height: 70vh;
+  min-height: 80vh;
   /* background-color: #f5f5f5; */
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 40vw;
+  min-height: 60vh;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background: #090b13;
+}
+
+.optionsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+}
+
 .card {
-  box-shadow: 4px 2px 6px 2px rgb(16, 9, 117);
+  box-shadow: 2px 2px 0px 1px rgb(204, 189, 189);
   background-color: #222831;
   height: auto;
   border-radius: 15px;
@@ -275,9 +237,9 @@ body .twitter svg {
   width: 160px;
   border-radius: 50%;
   /* border: 5px solid #272133; */
-  border: 3px solid #1d1258;
+  border: 2px solid #000000;
   margin-top: 20px;
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 1);
 }
 
 .grid-container {
@@ -289,34 +251,28 @@ body .twitter svg {
 
 /* button */
 
-.raise:hover,
-.raise:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-}
-
-button {
-  color: #ffa260;
-  transition: 0.25s;
+.sbutton {
   background: none;
+  color: #fa7d23;
   border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
   padding: 1em 2em;
-  border-radius: 5px;
+  font-size: 40px;
+  transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  border-radius: 10px;
+  margin: 20px;
 }
-button:focus,
-button:hover {
-  border-color: #e5ff60;
-  color: #e5ff60;
+.sbutton:hover {
+  border-color: #eeff38;
+  color: #eeff38;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+  cursor: pointer;
 }
 
 /* Navbar */
 nav.Navbar {
-  background: #000;
+  background: #050505;
   height: 80px;
-  /* margin-top: -80px; */
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -348,7 +304,6 @@ nav.Navbar {
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
-  background: inherit;
 }
 
 .NavMenu {
@@ -368,7 +323,6 @@ nav.Navbar {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background: #000;
   padding: 0 1rem;
   height: 96.5%;
   cursor: pointer;
@@ -378,11 +332,11 @@ nav.Navbar {
 
 .FooterContainer {
   margin-top: auto;
-  background-color: #101522;
+  background-color: #050505;
 }
 
 .FooterWrap {
-  padding: 24px 12px;
+  padding: 24px 12px 3px 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -402,9 +356,6 @@ nav.Navbar {
   align-items: center;
   max-width: 1100px;
   margin: 20px auto;
-  /* @media screen and (max-width: 820px) {
-    flex-direction: column;
-  } */
 }
 
 .WebsiteRights {
@@ -412,4 +363,23 @@ nav.Navbar {
   margin-bottom: 16px;
   font-weight: 700;
   text-align: center;
+}
+
+/* MENU */
+
+.optionsContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
+  padding: 20px;
+  max-width: 80vw;
+  margin: 15px 5px;
+}
+
+.settingsText {
+  color: black;
+  font-size: 2rem;
 }
