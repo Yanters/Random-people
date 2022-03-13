@@ -15,7 +15,6 @@ async function getapi(
   var formatedData = data.results[0];
   updatePeopleList(formatedData);
   show(formatedData);
-  // displayPeopleList();
 }
 
 function show(data) {
@@ -40,15 +39,6 @@ function show(data) {
     } = data;
   }
 
-  /*
-  `
-    <div class="card">
-    <img src="${user.picture.large}" alt="Person" class="card__image"/>
-      <p class="card__name">${user.name.first} ${user.name.last}</p>
-      <p class="card__info">🗺️: ${user.nat}</p>
-      <p class="card__info">📅: ${registerDate}</p>
-    </div>`
-  */
   let tab = `
         <div class="card">
         <img src="${pictureURL}" alt="Person" class="card__image""/>
@@ -72,7 +62,7 @@ function show(data) {
         `;
 
   // Setting innerHTML as tab variable
-  document.querySelector("#test").innerHTML = tab;
+  document.querySelector("#MainCard").innerHTML = tab;
 }
 // 0 - no sorting, 1 - sort by last name, 2 - sort by register data, 3 - sort by both
 var sortType = 0;
@@ -123,15 +113,23 @@ function displayPeopleList() {
   //Allow sorting table by last name and registration date.
   if (sortType != 0) {
     people.sort(function (a, b) {
-      let x = a.name.last.toUpperCase(),
-        y = b.name.last.toUpperCase(),
-        z = formatDate(a.registered.date);
-      c = formatDate(b.registered.date);
+      let NameA = a.name.last.toUpperCase(),
+        NameB = b.name.last.toUpperCase(),
+        DateA = formatDate(a.registered.date);
+      DateB = formatDate(b.registered.date);
       //Sort by last name
       if (sortType != 2) {
-        return x == y ? (sortType == 3 ? (z > y ? 1 : -1) : 0) : x > y ? 1 : -1;
+        return NameA == NameB
+          ? sortType == 3
+            ? DateA > NameB
+              ? 1
+              : -1
+            : 0
+          : NameA > NameB
+          ? 1
+          : -1;
       } else {
-        return z == c ? 0 : z > c ? 1 : -1;
+        return DateA == DateB ? 0 : DateA > DateB ? 1 : -1;
       }
     });
   }

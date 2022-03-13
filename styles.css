@@ -186,9 +186,9 @@ body .twitter svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 40vw;
+  min-width: 30vw;
   min-height: 60vh;
-  margin: 20px;
+  margin: auto;
   border: 1px solid black;
   border-radius: 15px;
   background: #090b13;
@@ -250,30 +250,11 @@ body .twitter svg {
   font-size: 1.2em;
 }
 
-/* button */
-
-.sbutton {
-  background: none;
-  color: #fa7d23;
-  border: 2px solid;
-  padding: 1em 2em;
-  font-size: 40px;
-  transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-  border-radius: 10px;
-  margin: 20px;
-}
-.sbutton:hover {
-  border-color: #eeff38;
-  color: #eeff38;
-  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
-  transform: translateY(-0.25em);
-  cursor: pointer;
-}
-
 /* Navbar */
 nav.Navbar {
   background: #050505;
   height: 80px;
+  width: 100%;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -394,16 +375,16 @@ nav.Navbar {
 /* button */
 
 .bn632-hover {
-  width: 160px;
-  font-size: 16px;
+  width: auto;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  margin: 20px;
+  margin: 20px auto;
   height: 55px;
   text-align: center;
   border: none;
-  background-size: 300% 100%;
+  padding: 2px 30px;
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -433,8 +414,6 @@ nav.Navbar {
   );
   box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }
-
-/* test */
 
 .MainWrapper {
   min-height: 90vh;
