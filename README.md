@@ -14,7 +14,7 @@ The goal is to write an application that will communicate with this API and have
 6. Create a separate page to display a table with the last 10 generated users. Display first name, last name, country, and registration date. ✔️
 7. Allow sorting table by last name and registration date. ✔️
 8. Data in the table should be saved after leaving the page (you can use e.g. localStorage) and set on init. ✔️
-9. Make it look good. ❌
+9. Make it look good. ✔️
 
 # Requirements
 
