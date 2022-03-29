@@ -9,12 +9,14 @@ async function getapi(
 ) {
   // Storing response
   const response = await fetch(url);
-
+  if(response.ok){
   // Storing data in form of JSON
-  var data = await response.json();
-  var formatedData = data.results[0];
+  let data = await response.json();
+  let formatedData = data.results[0];
   updatePeopleList(formatedData);
   show(formatedData);
+  }
+  //If failed default user will be displayed
 }
 
 function show(data) {
@@ -27,7 +29,7 @@ function show(data) {
   } = data;
 
   if (showAdresses) {
-    var {
+    let {
       location: { country },
       location: { city },
       location: {
@@ -65,11 +67,11 @@ function show(data) {
   document.querySelector("#MainCard").innerHTML = tab;
 }
 // 0 - no sorting, 1 - sort by last name, 2 - sort by register data, 3 - sort by both
-var sortType = 0;
+let sortType = 0;
 
 function changeState(clickedId) {
   // Get the checkbox
-  var checkBox = document.getElementById(clickedId);
+  let checkBox = document.getElementById(clickedId);
   // If the checkbox is checked, display the output text
   if (checkBox.checked == true) {
     showAdresses = false;
@@ -95,7 +97,7 @@ function formatDate(date) {
 
 function updatePeopleList(data) {
   // Loading
-  var people = getPeopleList();
+  let people = getPeopleList();
   if (people.length == 10) {
     people.shift();
   }
@@ -108,14 +110,14 @@ function updatePeopleList(data) {
 
 //Display first name, last name, country, and registration date.
 function displayPeopleList() {
-  var people = getPeopleList();
+  let people = getPeopleList();
   let tab = "";
   //Allow sorting table by last name and registration date.
   if (sortType != 0) {
     people.sort(function (a, b) {
       let NameA = a.name.last.toUpperCase(),
-        NameB = b.name.last.toUpperCase(),
-        DateA = formatDate(a.registered.date);
+      NameB = b.name.last.toUpperCase(),
+      DateA = formatDate(a.registered.date);
       DateB = formatDate(b.registered.date);
       //Sort by last name
       if (sortType != 2) {
@@ -135,7 +137,7 @@ function displayPeopleList() {
   }
 
   people.forEach(function (user, index) {
-    var registerDate = formatDate(user.registered.date);
+    let registerDate = formatDate(user.registered.date);
     tab += `
     <div class="card">
     <img src="${user.picture.large}" alt="Person" class="card__image"/>
